@@ -1,17 +1,18 @@
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
+    <!-- <footer class="sticky-footer bg-white fixed-bottom">
+        agar posisi footer dibawah
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Prajna Paramitha 2021</span>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
             <!-- End of Footer -->
 
-        </div>
+      
         <!-- End of Content Wrapper -->
 
-    </div>
+    
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->

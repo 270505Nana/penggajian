@@ -15,8 +15,6 @@ class Dashboard extends CI_Controller{
         $data['jabatan']   = $jabatan_nana->num_rows();
         $data['kehadiran'] = $kehadiran_nana->num_rows();
 
-        
-
         $this->load->view('templates_admin/header',$data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/dashboard',$data);
