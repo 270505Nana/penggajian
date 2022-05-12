@@ -8,7 +8,7 @@
 
     <div class="card mb-3">
         <div class="card-header bg-primary text-white">
-            Filter Data Absensi Pegawai
+           Input Absensi Pegawai
         </div>
 
         <div class="card-body">
@@ -44,9 +44,9 @@
 
                     </select>
                 </div>
-                
-                <button type="submit" class="btn btn-primary ml-auto mb-2"><i class="fas fa-eye mr-2"></i>Tampilkan Data</button>
-                <a href="<?= base_url('admin/data_absensi/tambah_absensi_nana')?>" class="btn btn-success ml-2 mb-2"><i class="fas fa-plus mr-2"></i>Input Kehadiran</a>
+            
+                <button type="submit" class="btn btn-primary ml-auto mb-2"><i class="fas fa-eye mr-2"></i>Generate</button>
+               
             </form>
         </div>
     </div>
@@ -69,43 +69,50 @@
     <div class="alert alert-info">
         Menampilkan Data Kehadiran Pegawai Bulan: <span class="font-weight-bold"><?= $bulan?> </span> Tahun: <span class="font-weight-bold"><?= $tahun?> </span> 
     </div>
-    <?php
-    $jumlah_data = count($absensi);
-    if($jumlah_data > 0){?>
+    <?= $this->session->flashdata('pesan')?>
+    
     <!-- Kalau ada datanya akan menampilkan datanya ke dalam tabel -->
-
+    <form method="POST" action="">
+    
+    <button name="submit"class="btn btn-success mb-3" type="submit" value="submit">SIMPAN</button>
     <table class="table table-bordered table-striped">
         <tr>
+
             <td class="text-center">No</td>
             <td class="text-center">NIK</td>
             <td class="text-center">Nama Pegawai</td>
             <td class="text-center">Jenis Kelamin</td>
             <td class="text-center">Jabatan</td>
-            <td class="text-center">Hadir</td>
-            <td class="text-center">Sakit</td>
-            <td class="text-center">Alpha</td>
+            <td class="text-center" width="10%">Hadir</td>
+            <td class="text-center"width="10%">Sakit</td>
+            <td class="text-center"width="10%">Alpha</td>
         </tr>
 
         <?php 
         $no=1;
-        foreach ($absensi as $a) :?>
+        foreach ($input_absensi as $a) :?>
            <tr>
+
+           <input type="hidden" name="bulan[]"         class="form-control" value="<?= $bulantahun?>">
+           <input type="hidden" name="nik[]"           class="form-control" value="<?= $a->nik?>">
+           <input type="hidden" name="nama_pegawai[]"  class="form-control" value="<?= $a->nama_pegawai?>">
+           <input type="hidden" name="jenis_kelamin[]" class="form-control" value="<?= $a->jenis_kelamin?>">
+           <input type="hidden" name="nama_jabatan[]"  class="form-control" value="<?= $a->nama_jabatan?>">
+
+
+
                <td><?= $no++?></td>
                <td><?= $a->nik?></td>
                <td><?= $a->nama_pegawai?></td>
                <td><?= $a->jenis_kelamin?></td>
                <td><?= $a->nama_jabatan?></td>
-               <td><?= $a->jumlah_hadir?></td>
-               <td><?= $a->sakit?></td>
-               <td><?= $a->alpha?></td>
+               <td><input type="number" name="jumlah_hadir[]" class="form-control" value="0"></td>
+               <td><input type="number" name="sakit[]"        class="form-control" value="0"></td>
+               <td><input type="number" name="alpha[]"        class="form-control" value="0"></td>
            </tr>
         <?php endforeach?>
     </table>
-
-    <?php }else{?>
-        <!-- elsenya, kalau datanya kosong akan muncul alert -->
-        <span class="badge badge-danger"><i class="fas fa-info-circle"></i>Data masih kosong, silahkan input data kehadiran pada bulan dan tahun yang Anda pilih.</span>
-     <?php } ?>
+    </form>
 </div>
 
 
