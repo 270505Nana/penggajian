@@ -50,6 +50,7 @@ class data_absensi extends CI_Controller{
                         'bulan'        => $post['bulan'][$key],
                         // ['bulan'] : nama field
                         'nik'          => $post['nik'][$key],
+                        'nama_pegawai' => $post['nama_pegawai'][$key],
                         'jenis_kelamin'=> $post['jenis_kelamin'][$key],
                         'nama_jabatan' => $post['nama_jabatan'][$key],
                         'jumlah_hadir' => $post['jumlah_hadir'][$key],
@@ -88,6 +89,12 @@ class data_absensi extends CI_Controller{
         
         // INNER JOIN data_jabatan ON data_pegawai.jabatan = data_jabatan.nama_jabatan
         // WHERE data_kehadiran.bulan='$bulantahun' 
+        // ORDER BY data_pegawai.nama_pegawai ASC")->result();
+
+        // $data['input_absensi'] = $this->db->query("SELECT data_pegawai.*, data_jabatan.nama_jabatan FROM data_pegawai
+        // INNER JOIN data_jabatan ON data_pegawai.jabatan=data_jabatan.nama_jabatan
+        // INNER JOIN data_pegawai ON data_kehadiran.nik=data_pegawai.nik
+        // WHERE NOT EXISTS(SELECT * FROM data_kehadiran WHERE  bulan='$bulantahun' AND data_pegawai.nik=data_kehadiran.nik)
         // ORDER BY data_pegawai.nama_pegawai ASC")->result();
 
         $data['input_absensi'] = $this->db->query("SELECT data_pegawai.*, data_jabatan.nama_jabatan FROM data_pegawai
