@@ -44,9 +44,42 @@
 
                     </select>
                 </div>
+
+                <!-- biar $bulannya itu bisa kepanggil -->
+                <?php
+                if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
+                    $bulan =$_GET['bulan'];
+                    $tahun =$_GET['tahun'];
+            
+                    $bulantahun = $bulan . $tahun;
+                }else{
+                    // Jika tidak ada, maka akan menampilkan bulan dan tahun sekarang
+                    $bulan = date('m'); //bulan
+                    $tahun = date('Y'); //tahun
+            
+                    $bulantahun = $bulan . $tahun;
+                }
+                ?>
                 
                 <button type="submit" class="btn btn-primary ml-auto mb-2"><i class="fas fa-eye mr-2"></i>Tampilkan Data</button>
-                <a href="<?= base_url('')?>" class="btn btn-success ml-2 mb-2"><i class="fas fa-plus mr-2"></i>Cetak Daftar Gaji</a>
+                <?php if (count($gaji) > 0) { ?>
+                    <!-- $gaji => diambil dari inisial controller data_penggajian -->
+                    <!-- gaji > 0 = ada data, menampilkan button cetak gaji -->
+                    <!-- gaji < 0 = tidak ada data -->
+
+                    <a href="<?= base_url('admin/data_penggajian/cetak_gaji?bulan='.$bulan),'&tahun='.$tahun?>" class="btn btn-success ml-2 mb-2"><i class="fas fa-print mr-2"></i>Cetak Daftar Gaji</a>
+
+                <?php } else {?>
+                    <!-- tidak ada datanya, menampilkan popup -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success ml-2 mb-2" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-print mr-2"></i>Cetak Daftar Gaji
+                    </button>
+                <?php }?>
+                
+                    
+                
+                
             </form>
         </div>
     </div>
@@ -125,6 +158,28 @@
 
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Data gaji pegawai masih kosong, silahkan input absensi terlebih dahulu pada bulan dan tahun yang anda pilih
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
            
