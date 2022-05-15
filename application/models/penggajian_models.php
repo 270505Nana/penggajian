@@ -27,5 +27,29 @@ class penggajian_models extends CI_Model{
         }
 
     }
+
+    public function cek_login_nana(){
+
+        $username = set_value('username');
+        $password = set_value('password');
+
+        $result = $this->db->where('username', $username)
+                           ->where('password',md5($password))
+                           ->limit(1)
+                           ->get('data_pegawai');
+        if($result->num_rows()>0){
+            return $result->row();
+        }else{
+            return FALSE;
+        }
+
+        // NOTEE  :                  
+        // result data username == username yang diinput
+        // limit(1)              => data yang diambil hanya 1
+        // get('data_pegawai')   => data ddiambil dari table mana
+        // md5                   => soalnya kan tadi passwordnya ituu di encryted pakai md5
+        
+
+    }
 }
 ?>

@@ -41,20 +41,27 @@
                                     <div class="text-center"> 
                                         <h1 class="h4 text-gray-900 mb-4">APLIKASI PENGGAJIAN <br> <b>PT. INDONESIA BANGKIT</b></h1>
                                     </div>
-                                    <form class="user">
+                                    <!-- flashdata -->
+                                    <?= $this->session->flashdata('pesan')?>
+                                    
+                                    <form class="user" method="POST" action="<?= base_url('welcome')?>">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Masukkan Username" name="username"> 
+
+                                                <?php echo form_error('username', '<div class="text-danger text-small mb-2 mt-2 ml-2"></div>') ?>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" name="password">
+
+                                                <?php echo form_error('password', '<div class="text-small text-danger mb-2 mt-2 ml-2"></div>') ?>
+
                                         </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <button class="btn btn-primary btn-user btn-block" type="submit">LOGIN</button>
+                                        
                                     </form>
                                 </div>
                             </div>
