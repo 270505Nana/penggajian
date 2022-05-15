@@ -19,6 +19,7 @@
             <th class="text-cente">Tanggal Masuk</th>
             <th class="text-cente">Status</th>
             <th class="text-cente">Photo</th>
+            <th class="text-cente">Hak Akses</th>
             <th class="text-cente">Aksi</th>
         </tr>
 
@@ -35,6 +36,13 @@
             <td><?= $p->tanggal_masuk ?></td>
             <td><?= $p->status ?></td>
             <td><img src="<?= base_url(). 'assets/photo/'.$p->foto?>" width="75px"></td>
+            
+                <?php if($p->hak_akses=='1') { ?>
+                    <td>Admin</td>
+                <?php }else{ ?>
+                    <td>Pegawai</td>
+                <?php } ?>
+            
             <td>
                 <center>
                     <a href="<?= base_url('admin/data_pegawai/update_data/'.$p->id_pegawai)?>"><i class="fas fa-edit"></i></a>

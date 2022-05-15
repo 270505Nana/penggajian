@@ -38,11 +38,14 @@ class data_pegawai extends CI_Controller{
             $jabatan       = $this->input->post('jabatan');
             $tanggal_masuk = $this->input->post('tanggal_masuk');
             $status        = $this->input->post('status');
-            $foto          = $_FILES['foto'] ['name'];
+            $hak_akses     = $this->input->post('hak_akses');
+            $username      = $this->input->post('username');
+            $password      = md5($this->input->post('password'));
+            $foto         = $_FILES['foto'] ['name'];
             if($foto=''){}else{
                 $config ['upload_path']   = './assets/photo';
                 // directory foto
-                $config ['allowed_types'] = 'jpg|jpeg|gif|png|tiff|webp';
+                $config ['allowed_types'] = 'jpg|jpeg|png|tiff|webp|jfif';
                 $this->load->library('upload',$config);
 
                 if(!$this->upload->do_upload('foto')){
@@ -60,6 +63,9 @@ class data_pegawai extends CI_Controller{
                 'jabatan'        => $jabatan,
                 'tanggal_masuk'  => $tanggal_masuk,
                 'status'         => $status,
+                'hak_akses'      => $hak_akses,
+                'username'       => $username,
+                'password'       => $password,   
                 'foto'           => $foto,
             );
             $this->penggajian_models->insert_data($data,'data_pegawai');
@@ -122,6 +128,9 @@ class data_pegawai extends CI_Controller{
             $jabatan       = $this->input->post('jabatan');
             $tanggal_masuk = $this->input->post('tanggal_masuk');
             $status        = $this->input->post('status');
+            $hak_akses     = $this->input->post('hak_akses');
+            $username      = $this->input->post('username');
+            $password      = md5($this->input->post('password'));
             // ditangkap
             $data = array(
                 // disimpan
@@ -131,6 +140,9 @@ class data_pegawai extends CI_Controller{
                 'jabatan'        => $jabatan,
                 'tanggal_masuk'  => $tanggal_masuk,
                 'status'         => $status,
+                'hak_akses'      => $hak_akses,
+                'username'       => $username,
+                'password'       => $password,
                 
             );
 

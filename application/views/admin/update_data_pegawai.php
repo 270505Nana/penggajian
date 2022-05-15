@@ -27,6 +27,18 @@
             </div>
 
             <div class="from-group">
+                <label for="">Username</label>
+                <input type="text" name="username" class="form-control" value="<?= $p->username?>" required>
+               
+            </div>
+
+            <div class="from-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control" value="<?= $p->password?>" required>
+             
+            </div>
+
+            <div class="from-group">
                 <label for="">Jenis Kelamin</label>
                <select name="jenis_kelamin" class="form-control" required>
                    <option  value="<?= $p->jenis_kelamin?>"><?= $p->jenis_kelamin?></option>
@@ -38,7 +50,7 @@
             
             <div class="from-group">
                 <label for="">Jabatan</label>
-               <select name="jabatan" class="form-control"  required>
+               <select name="jabatan" class="form-control"required>
                    <option value="<?= $p->jabatan?>"><?= $p->jabatan?></option>
                    <?php foreach ($jabatan as $jbtn): ?>
                    
@@ -58,7 +70,8 @@
             <div class="from-group">
                 <label for="">Status</label>
                <select name="status" class="form-control" required >
-                   <option  value="<?= $p->status?>"><?= $p->status?></option>
+               <option value="<?= $p->status?>"><?= $p->status?></option>
+                  
                    <option value="Pegawai Tetap">Pegawai Tetap</option>
                    <option value="Pegawai Tidak Tetap">Pegawai Tidak Tetap</option>
                </select>
@@ -68,6 +81,21 @@
             <div class="from-group">
                 <label for="">Foto</label>
                 <input type="file" name="foto" class="form-control" value="<?= $p->foto?>" >
+            </div>
+
+            <div class="from-group">
+                <label for="">Hak Akses</label>
+               <select name="hak_akses" id="" class="form-control">
+                    <option value="">
+                    <?php if ($p->hak_akses == '1') {
+                       echo"Admin";
+                   } else{
+                       echo"Pegawai";
+                   } ?>
+                   </option>
+                    <option value="1">Admin</option>
+                    <option value="2">Pegawai</option>
+               </select>
             </div>
 
             <button type="submit" value="SIMPAN" class="btn btn-success my-3">UBAH</button>

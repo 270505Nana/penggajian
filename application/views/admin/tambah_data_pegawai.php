@@ -24,6 +24,18 @@
             </div>
 
             <div class="from-group">
+                <label for="">Username</label>
+                <input type="text" name="username" class="form-control" required>
+               
+            </div>
+
+            <div class="from-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control" required>
+             
+            </div>
+
+            <div class="from-group">
                 <label for="">Jenis Kelamin</label>
                <select name="jenis_kelamin" class="form-control" required>
                    <option value="">---Pilih Jenis Kelamin</option>
@@ -67,6 +79,15 @@
             <div class="from-group">
                 <label for="">Foto</label>
                 <input type="file" name="foto" class="form-control">
+            </div>
+
+            <div class="from-group">
+                <label for="">Hak Akses</label>
+               <select name="hak_akses" id="" class="form-control">
+                    <option value="">---Pilih Hak Akses---</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Pegawai</option>
+               </select>
             </div>
 
             <button type="submit" value="SIMPAN" class="btn btn-primary my-3">SIMPAN</button>
