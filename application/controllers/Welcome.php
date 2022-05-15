@@ -41,6 +41,8 @@ class Welcome extends CI_Controller {
 				// untuk set sessionnya
 				$this->session->set_userdata('nama_pegawai',$cek_nana->nama_pegawai);
 				$this->session->set_userdata('foto',$cek_nana->foto);
+				$this->session->set_userdata('id_pegawai',$cek_nana->id_pegawai);
+
 
 				switch ($cek_nana->hak_akses) {
 					// kalau 1 -> admin diarahkan ke dashboard admin
