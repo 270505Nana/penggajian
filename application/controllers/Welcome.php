@@ -42,6 +42,7 @@ class Welcome extends CI_Controller {
 				$this->session->set_userdata('nama_pegawai',$cek_nana->nama_pegawai);
 				$this->session->set_userdata('foto',$cek_nana->foto);
 				$this->session->set_userdata('id_pegawai',$cek_nana->id_pegawai);
+				$this->session->set_userdata('nik',$cek_nana->nik);
 
 
 				switch ($cek_nana->hak_akses) {
