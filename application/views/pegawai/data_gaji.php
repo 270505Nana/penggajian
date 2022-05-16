@@ -32,7 +32,7 @@
             <td>Rp. <?= number_format($g->gaji_pokok + $g->tj_transport + $g->uang_makan - $pot_gaji,0,',','.')?></td>
             <td>
                 <center>
-                    <a class="btn btn-sm btn-primary" href="<?= base_url('pegawai/data_gaji/cetak_slip/'.$g->id_kehadiran)?>"><i class="fas fa-print"></i></a>
+                    <a class="btn btn-sm btn-primary" href="<?= base_url('pegawai/data_gaji/cetak_slip_nana/'.$g->id_kehadiran)?>"><i class="fas fa-print"></i></a>
                 </center>
             </td>
         </tr>

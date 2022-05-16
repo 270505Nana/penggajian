@@ -50,7 +50,8 @@ class slip_gaji extends CI_Controller{
         data_jabatan.gaji_pokok,
         data_jabatan.tj_transport,
         data_jabatan.uang_makan,
-        data_kehadiran.alpha
+        data_kehadiran.alpha,
+        data_kehadiran.bulan
         FROM  data_pegawai
         INNER JOIN data_kehadiran ON data_kehadiran.nik=data_pegawai.nik
         INNER JOIN data_jabatan ON data_jabatan.nama_jabatan=data_pegawai.jabatan

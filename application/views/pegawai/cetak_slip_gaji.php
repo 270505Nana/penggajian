@@ -53,6 +53,15 @@
             <td>Bulan</td>
             <td>:</td>
             <td><?= substr($sn->bulan, 0, 2 ) ?></td>
+            <!-- substr untuk memecah tgl sama bulannya, karena kan didatabase jadi satu
+            jadi satu 052022 -->
+
+            <!-- Bulan itu kan 05 aja, brrti urutannya 0-1
+            0 = 0
+            5 = 1 -->
+
+            <!-- 0 : argumen, kita ambil dimulai dari urutan keberapa -->
+            <!-- 2 : jumlah stringnya, misal itu kan bulan 05 brrti ambilnya dua aja, kalau tahun 4 -->
         </tr>
 
 
