@@ -28,7 +28,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('ganti_password')?>">
+            <a class="nav-link" href="<?= base_url('pegawai/ganti_password')?>">
             <i class='fas fa-fw fa-user-lock'></i>
                 <span>Ubah Password</span></a>
         </li>
